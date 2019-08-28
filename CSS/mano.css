@@ -1,3 +1,82 @@
-body  {
-    background-color: deepskyblue;
+body {
+    background-color: #ffffff;
+}
+
+.grid_items1 {
+    grid-area: 1;
+    float: left;
+    width: 33.333%;
+    align-self: start;
+    align-self: center;
+}
+
+.grid_items2 {
+float: left;
+    grid-area: 2;
+    align-self: start;
+    align-self: center;
+    width: 33.333%;
+
+}
+
+.grid_items3 {
+
+    grid-area: 3;
+    float: right;
+    width: 33.333%;
+    align-self: start;
+    align-self: center;
+}
+
+.grid_items4 {
+float: left;
+    grid-area: 4;
+    text-align: center;
+    width: 33.333%;
+}
+
+.grid_items5 {
+float: left;
+    grid-area: 5;
+    text-align: center;
+    width: 33.333%;
+}
+.grid_items6{
+    grid-area: 6;
+    float: left;
+    width: 33.333%;
+
+.grid_items7 {
+    grid-area: 7;
+    float: left;
+    width: 33.333%;
+
+.grid_items8 {
+    grid-area: 8;
+    float: left;
+    width: 33.333%;
+
+.grid_items9 {
+    grid-area: 9;
+    float: left;
+    width: 33.333%;
+    height: 33.333%;
+
+@keyframes example {
+    from {
+        backgroudn-color: #ff0000;
+    }
+    to {
+        background-color: yellow;
+    }
+}
+
+
+
+#grid {
+    display: grid;
+    grid-template-areas: none;
+            '1 2 3'
+            '4 5 6'
+            '7 8 9';
 }
