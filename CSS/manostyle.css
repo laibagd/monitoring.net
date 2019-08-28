@@ -9,7 +9,7 @@ body {
 /* Style the header */
 .header {
     float: left;
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 20px;
     text-align: center;
 }
@@ -19,10 +19,25 @@ body {
     width: 25%;
 }
 
-/* Middle column */
-.header.middle{
-    width: 50%;
+#right {
+    overflow-y: scroll;
 }
+
+#login{
+    size:100px;
+    height: 100px;
+}
+#logo{
+    size: 100px;
+    height: 100px;
+}
+/* Middle column */
+.header.middle {
+    width: 50%;
+    text-align: center;
+}
+
+
 
 .row:after {
     content: "";
@@ -32,14 +47,18 @@ body {
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: white;
+    position: absolute;
+    left: 40%;
+    top:5%;
+
 }
 
 /* Style the topnav links */
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -54,7 +73,8 @@ body {
 /* Create three unequal columns that floats next to each other */
 .column {
     float: left;
-    padding: 10px;
+    background-color: white;
+    padding: 20px;
     text-align: center;
 }
 
@@ -74,15 +94,101 @@ body {
     display: table;
     clear: both;
 }
-    @media screen and (max-width: 600px) {
-    .header.side, .header.middle {
-        width: 100%;
-    }
-
-    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        .column.side, .column.middle {
+@media screen and (max-width: 600px) {
+        .header.side, .header.middle {
             width: 100%;
         }
     }
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+            .column.side, .column.middle {
+                width: 100%;
+            }
+
+
+        }
+        .footer {
+            float: left;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Left and right column */
+        .footer.side {
+            width: 25%;
+        }
+
+        /* Middle column */
+        .footer.middle {
+            width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+@media screen and (max-width: 600px) {
+            .footer.side, .footer.middle {
+                width: 100%;
+            }
+        }
+
+
+.load-bar {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 6px;
+    background-color: #fdba2c;
 }
+.bar {
+    content: "";
+    display: inline;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 50%;
+    text-align: center;
+}
+.bar:nth-child(1) {
+    background-color: #da4733;
+    animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+    background-color: #3b78e7;
+    animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+    background-color: #fdba2c;
+    animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+    from {left: 50%; width: 0;z-index:100;}
+    33.3333% {left: 0; width: 100%;z-index: 10;}
+    to {left: 0; width: 100%;}
+
+
+
+    /* Skill bar */
+}
+* {box-sizing: border-box}
+
+.container {
+    width: 100%;
+    background-color: #ddd;
+}
+
+.skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.html {width: 90%; background-color: #4CAF50;}
+.css {width: 80%; background-color: #2196F3;}
+.js {width: 65%; background-color: #f44336;}
+.php {width: 60%; background-color: #808080;}
