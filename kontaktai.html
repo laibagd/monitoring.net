@@ -1,55 +1,321 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Kontaktai</title>
+    <title>
+        Puslapio pavadinimas
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/manostyle.css">
+    <script src="js/javascript.js"></script>
+
 </head>
+
+
 <body>
+<div class="row">
 
-<form action="saugotizinute.php" method="post">
+    <div class="header side">
+        <img id="logo" src="img/dreamdress.png">
+    </div>
 
-    <label for="fn">Vardas </label>
-    <input name="firstname" type="text" id="fn" />
+    <div class="header middle">
 
-</br>
-    </br>
+        <div class="topnav">
+            <a href="index.html">Apie mane |</a>
+            <a href="portfolio.html">Portfolio |</a>
+            <a href="kontaktai.html">Kontaktai </a>
+        </div>
 
-    <label for="fn1"> Pavarde </label>
-    <input name="lastname" type="text" id="fn1" />
+    </div>
+    <div class="header side">
+        <img id="login" src="img/admin.png">
 
-    </br>
-    </br>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-    <label for="zinute">Zinute man </label>
-    </br>
-    <textarea name="message" rows="10" cols="30" id="zinute">
+        <div id="id01" class="modal">
+
+            <form class="modal-content animate" action="/action_page.php">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                          title="Close Modal">&times;</span>
+                    <img src="/img/admin.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtn">Cancel
+                    </button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+
+    </div>
+</div>
+
+<div class="load-bar">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+
+<div class="row">
+    <div class="column side">
+        <p>HTML</p>
+        <div class="container">
+            <div class="skills html">90%</div>
+        </div>
+
+        <p>CSS</p>
+        <div class="container">
+            <div class="skills css">80%</div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="container">
+            <div class="skills js">65%</div>
+        </div>
+
+        <p>PHP</p>
+        <div class="container">
+            <div class="skills php">60%</div>
+        </div>
+
+        <p>My SQL</p>
+        <div class="container">
+            <div class="skills sql">50%</div>
+        </div>
+
+    </div>
+
+    <div class="column middle">
+        
+        <img id="map" src="/img/map.jpg">
+        
+
+
+        <form action="../saugotizinute.php" method="post">
+
+            <label for="fn">Vardas </label>
+            <input name="firstname" type="text" id="fn"/>
+
+            </br>
+            </br>
+
+            <label for="fn1"> El. Paštas </label>
+            <input name="lastname" type="text" id="fn1"/>
+
+            </br>
+            </br>
+
+            <label for="zinute">Žinute </label>
+            </br>
+            <textarea name="message" rows="10" cols="30" id="zinute">
     </textarea>
 
 
-    </br>
-    </br>
+            </br>
+            </br>
 
-    <input type="submit" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-    </br>
-    </br>
-
-    <input type="color" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-
-    </br>
-    </br>
-
-    <input type="checkbox" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-    <input type="checkbox" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-    <input type="checkbox" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-    <input type="checkbox" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
-
-    <br>
-<br>
-    <input type="date" value="klausti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
+            <input type="submit" value="Siusti" style="height: 50 px; width: 100 px; left: 250; top: 250;">
+            </br>
+            </br>
 
 
-</form>
+        </form>
+    </div>
+
+    <div id="right" class="column side">
+
+        <!-- laikrodis -->
+        <canvas id="canvas" width="200" height="200"
+                style="background-color:white">
+        </canvas>
+
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.90
+            setInterval(drawClock, 1000);
+
+
+            function drawClock() {
+                drawFace(ctx, radius);
+                drawNumbers(ctx, radius);
+                drawTime(ctx, radius);
+            }
+
+            function drawFace(ctx, radius) {
+                var grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'yellow';
+                ctx.fill();
+                grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+                grad.addColorStop(0, '#333');
+                grad.addColorStop(0.5, 'red');
+                grad.addColorStop(1, '#333');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = radius * 0.1;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+                ctx.fillStyle = '#333';
+                ctx.fill();
+
+
+                ctx.fillStyle = "green";
+                ctx.fillText("Rolex", 0, -50);
+
+            }
+
+            function drawNumbers(ctx, radius) {
+                var ang;
+                var num;
+                ctx.font = radius * 0.15 + "px arial";
+                ctx.textBaseline = "middle";
+                ctx.textAlign = "center";
+                for (num = 1; num < 13; num++) {
+                    ang = num * Math.PI / 6;
+                    ctx.rotate(-ang);
+                    ctx.translate(0, -radius * 0.85);
+                    ctx.rotate(ang);
+                    ctx.fillText(num.toString(), 0, 0);
+                    ctx.rotate(-ang);
+                    ctx.translate(0, radius * 0.85);
+                    ctx.rotate(ang);
+
+
+                }
+            }
+
+            function drawTime(ctx, radius) {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                //hour
+                hour = hour % 12;
+                hour = (hour * Math.PI / 6) +
+                    (minute * Math.PI / (6 * 60)) +
+                    (second * Math.PI / (360 * 60));
+                drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+                //minute
+                minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+                drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+                // second
+                second = (second * Math.PI / 30);
+                drawHand(ctx, second, radius * 0.9, radius * 0.02);
+            }
+
+            function drawHand(ctx, pos, length, width) {
+                ctx.beginPath();
+                ctx.lineWidth = width;
+                ctx.lineCap = "round";
+                ctx.moveTo(0, 0);
+                ctx.rotate(-pos);
+                ctx.lineTo(0, -length);
+                ctx.stroke();
+                ctx.rotate(pos);
+            }
+        </script>
+
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="footer side">
+            <h3>Foooter</h3>
+            <p>Resize the browser window to see the responsive effect.</p>
+        </div>
+
+        <div class="footer middle">
+            <h3>Footer</h3>
+            <p>Resize the browser window to see the responsive effect.</p>
+        </div>
+        <div class="footer side">
+            <h3>Footer</h3>
+            <p>Resize the browser window to see the responsive effect.</p>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
 
 
 </body>
+
 </html>
