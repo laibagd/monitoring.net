@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>
+    Mano pirmas puslapis
+</h1>
+<p>
+
+
+</p>
+
+
+<button onclick="document.getElementById('lempute').src='/img/pic_bulboff.gif'">Turn off the light</button>
+
+<img id="lempute" src="/img/pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('lempute').src='/img/pic_bulbon.gif'">Turn on the light</button>
+
+
+
+
+                <a href="#" id="name">
+                    <img title="Hello" src="/img/pic_bulboff.gif" onmouseover="this.src='../img/pic_bulbon.gif';" onmouseout="this.src='../img/pic_bulboff.gif';" />
+                </a>
+
+<br>
+
+
+<h1>Užduotys</h1>
+<p id="demo"></p>
+<br>
+
+<script>
+    let a=-5;
+    let b=0;
+    let c=-4;
+    let d=4;
+    document.getElementById('demo').innerHTML=a.toString();
+    if (b>c) {
+        if (a>c){
+            document.getElementById('demo').innerHTML='Klaida: kintamasis a turi buti mazesnis uz c ';
+        } else {
+            if (b>d) {
+                document.getElementById('demo').innerHTML='Sankirta = [ '+c.toString()+'; '+d.toString()+' ]';
+            } else {
+                document.getElementById('demo').innerHTML='Sankirta = [ '+c.toString()+'; '+b.toString()+' ]';
+            }
+        }
+    } else if (b===c){
+        document.getElementById('demo').innerHTML='Sankirta = '+b.toString();
+    } else {
+        document.getElementById('demo').innerHTML='Sankirta neegzistuoja';
+
+
+
+}
+
+</script>
+<br>
+
+<h1>3</h1>
+<p id="demo1"> </p>
+<script>
+
+    let fname="Borris";
+    let lname="Johnson";
+    let kursas= 3 ;
+    let mokosi= 'KTU';
+    let pazymiai= [5,11,6]
+
+
+    document.getElementById('demo1').innerHTML="Mano vardas "  + fname + " " + lname + "." + " Mokausi as "+ kursas +" kurse " + mokosi +" universitete"
+    + ". Mano pazymiai: " +pazymiai;
+
+
+</script>
+
+<br>
+<h2> 4 </h2>
+<p id="demo2"> </p>
+<p id="demo3"> </p>
+<p id="demo4"> </p>
+<p id="demo5"> </p>
+
+
+
+<p id="demo6"> </p>
+
+
+<script>
+
+
+    document.getElementById('demo2').innerText='Vardas yra ' + typeof fname;
+
+    document.getElementById('demo3').innerText='Pavarde yra ' + typeof lname;
+
+    document.getElementById('demo4').innerText='Kursas yra ' + typeof kursas;
+
+    document.getElementById('demo5').innerText='Universitetas yra ' + typeof mokosi;
+
+    document.getElementById('demo6').innerText='Pazymiai yra ' + typeof pazymiai;
+
+</script>
+
+<br>
+<p style="font-size: xx-large"> 6 </p>
+<p id="demo7"> </p>
+
+<p style="font-size: xx-large" > 7 </p>
+
+
+<p id="demo8"></p>
+
+<script>
+
+    let studentas= [fname,lname,kursas,mokosi,pazymiai]
+
+    console.log(studentas) ;
+
+    document.getElementById('demo7').innerText= studentas;
+
+
+
+    document.getElementById("demo8").innerHTML = 'Mano vardas ' + studentas[0] +" "+ 'o pazymiai '+ pazymiai;
+
+
+
+
+
+</script>
+
+
+<p style="font-size: xx-large" > 8 </p>
+
+
+<p id="demo100"></p>
+
+<script>
+    document.getElementById('demo100').innerText=pazymiai;
+
+
+</script>
+
+
+<p style="font-size: xx-large" > 9 </p>
+
+<button onclick="myFunction()">pridet bala </button>
+<p id="demo9"></p>
+
+<script>
+    function myFunction() {
+
+
+
+
+        if (pazymiai[0] < 10) {
+
+            pazymiai[0] = pazymiai[0] + 1;
+
+        }
+
+
+        else if (pazymiai[0] >= 10)
+        {
+            pazymiai[0] = 10
+        }
+
+
+
+        if (pazymiai[1] < 10) {
+
+            pazymiai[1] = pazymiai[1] + 1;
+
+        }
+
+
+        else if (pazymiai[1] >= 10)
+        {
+            pazymiai[1] = 10
+        }
+
+
+
+        if (pazymiai[2] < 10) {
+
+            pazymiai[2] = pazymiai[2] + 1;
+
+        }
+
+
+        else if (pazymiai[2] >= 10)
+        {
+            pazymiai[2] = 10
+        }
+
+
+
+        {
+            document.getElementById("demo9").innerHTML = pazymiai;
+
+        }
+    }
+</script>
+
+
+<p id="demo10"></p>
+
+<p style="font-size: xx-large" > 10 </p>
+<p id="demo14"></p>
+
+
+
+<script>
+
+
+    let suma = [pazymiai[0]+pazymiai[1]+pazymiai[2]]
+    {
+
+        document.getElementById('demo14').innerText = 'triju skaiciu suma ' + suma;
+
+    }
+
+
+
+
+
+
+</script>
+
+
+<script>
+    console.log(5 + 6);
+</script>
+
+<p id="demo12"></p>
+
+<script>
+    let a=-5;
+    let b=0;
+    let c=-4;
+    let d=4;
+    if (b>c) {
+        if (a>c){
+            document.getElementById('demo12').innerHTML='Klaida: kintamasis a turi buti mazesnis uz c ';
+        } else {
+            if (b>d) {
+                document.getElementById('demo12').innerHTML='Sankirta = [ '+c.toString()+'; '+d.toString()+' ]';
+            } else {
+                document.getElementById('demo12').innerHTML='Sankirta = [ '+c.toString()+'; '+b.toString()+' ]';
+            }
+        }
+    } else if (b===c){
+        document.getElementById('demo12').innerHTML='Sankirta = '+b.toString();
+    } else {
+        document.getElementById('demo12').innerHTML='Sankirta neegzistuoja';
+    }
+</script>
+
+<p style="font-size: xx-large" > 11 </p>
+
+
+<p id="demo13"></p>
+
+
+
+<script>
+
+
+    let dauginti = [pazymiai[0] * pazymiai[1]]
+    {
+
+        document.getElementById('demo13').innerText ='dvieju skaiciu daugyba '+ dauginti;
+
+    }
+
+
+
+
+
+
+</script>
+
+
+<p style="font-size: xx-large" > 13, 14 </p>
+
+
+<p id="demo101"> </p>
+
+
+
+<script>
+
+    if (kursas===4)   {
+
+
+        document.getElementById('demo101').innerText = 'Studentas abiturientas '+ 'nes jis jau ' + kursas + ' kurse';
+
+    }
+if (kursas < 4 )
+    document.getElementById('demo101').innerText = 'studentui dar toli iki mokslų baigimo '+ 'nes jis dabar ' + kursas + " kurse"
+
+
+</script>
+
+
+
+
+</body>
+
+
+
