@@ -58,3 +58,17 @@ $('[value=dalinti]').click(function () {
     $('#rez').append(span);
     $('#rez> span ').html(ats);
 });
+
+
+$(document).ready(function() {
+    $("#index").click(function () {
+        $('#apie').load("../jquery/apie.html");
+    });
+    $("#portfolio").click(function () {
+        $('#apie').load("../jquery/portfolio.html");
+    });
+    $("#kontaktai").click(function () {
+        $('#apie').load("../jquery/kontaktai.html");
+    });
+
+});
