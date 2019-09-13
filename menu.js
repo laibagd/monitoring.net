@@ -1,5 +1,3 @@
-
-
 let ip;
 let json;
 
@@ -13,15 +11,18 @@ function siustiduomenis() {
     $.post('ping.php', json, function (data) {
         $('#apie').append(data);
     });
-}
-    function suformuotJson(){
-        json = {
-            "ip": ip,
 
-        };
 }
 
-$('[value=checkserver]').click(function(){
+
+function suformuotJson() {
+    json = {
+        "ip": ip,
+
+    };
+}
+
+$('[value=checkserver]').click(function () {
 
     paimtiduomenis();
     suformuotJson();

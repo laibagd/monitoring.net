@@ -34,7 +34,8 @@
         <div class="topnav">
             <a id="index" >Apie mane |</a>
             <a id="portfolio">Portfolio |</a>
-            <a id="kontaktai">Kontaktai </a>
+            <a id="kontaktai">Kontaktai | </a>
+
         </div>
 
     </div>
@@ -133,15 +134,16 @@
     <div id="apie" class="column middle">
 
 
-        <input type="button" value="checkserver" id="checkserver" name="ip" >
 
 
-<br>
 
-        <label for="ip">IP ADRESAS </label>
-        <input name="ip" type="text" id="ip" value="192.168.0.1" />
+        <button  onclick="setInterval(siustiduomenis, 3000);" value="checkserver" id="checkserver" name="ip"> Start </button>
 
 
+        <br> <button onclick=href=index.html() ; value="stop" id="stop" name="stop"> Stop </button>
+
+        <label for="ip">IP ADRESAS arba WEB puslapis </label>
+        <input name="ip" type="text" id="ip" placeholder="192.168.0.1 arba www.delfi.lt" />
 
 
 

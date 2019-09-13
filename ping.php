@@ -3,8 +3,7 @@
 
 // page autorefresh
 
-$url1=$_SERVER['REQUEST_URI'];
-header("Refresh: 5; URL=$url1");
+
 
 
 //PING
@@ -38,9 +37,14 @@ class CheckDevice {
 
 
 
+
+
+
 $ip_addr = $_POST['ip'];
 
 if ((new CheckDevice())->ping($ip_addr))
-    echo "The device exists";
+    echo "Device Connected <br>";
 else
-    echo "The device is not connected";
+    echo "Device disconnected <br>";
+
+

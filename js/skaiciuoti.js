@@ -12,7 +12,8 @@ $(document).ready(function () {
     });
 
     $('#checkserver').click(function () {
-$('#ping').load("../ping.php")
+
+        $('#ping').load("../ping.php")
     });
 });
 
