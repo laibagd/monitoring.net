@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -32,6 +37,8 @@
     <div class="header middle">
 
         <div class="topnav">
+
+            <a href="index.html">Check Server | </a>
             <a id="index" >Apie mane |</a>
             <a id="portfolio">Portfolio |</a>
             <a id="kontaktai">Kontaktai | </a>
@@ -42,16 +49,25 @@
     <div class="header side">
         <img id="login" src="img/admin.png">
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+        <button onclick="window.location.href='login.php'">Login</button>
 
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action="/action_page.php">
+            <form class="modal-content animate" action="/login.php">
                 <div class="imgcontainer">
-                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    <span onclick=document.getElementById('id01').style.display='none'; class="close"
                           title="Close Modal">&times;</span>
                     <img src="/img/admin.png" alt="Avatar" class="avatar">
                 </div>
+
+                <div class="page-header">
+                    <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+                </div>
+                <p>
+                    <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+                    <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+                </p>
+
 
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
@@ -137,13 +153,23 @@
 
 
 
-        <button  onclick="setInterval(siustiduomenis, 3000);" value="checkserver" id="checkserver" name="ip"> Start </button>
+        <button  onclick="setInterval(siustiduomenis, 3000);" value="checkserver" id="checkserver" name="ip"> Start ping </button>
 
+        <button onclick="location.href='index.html'" type="button">  Stop ping </button>
 
-        <br> <button onclick=href=index.html() ; value="stop" id="stop" name="stop"> Stop </button>
 
         <label for="ip">IP ADRESAS arba WEB puslapis </label>
         <input name="ip" type="text" id="ip" placeholder="192.168.0.1 arba www.delfi.lt" />
+
+
+
+
+
+
+
+
+
+
 
 
 
