@@ -29,3 +29,44 @@ $('[value=checkserver]').click(function () {
     siustiduomenis();
 
 });
+
+
+
+
+// Set timeout letiables.
+let timoutWarning = 1000000; // Display warning in 20 sec.
+let timoutNow = 2000000; // Timeout in 10sec.
+let logoutUrl = 'logout.php'; // URL to logout page.
+
+let warningTimer;
+let timeoutTimer;
+
+// Start timers.
+function StartTimers() {
+    warningTimer = setTimeout("IdleWarning()", timoutWarning);
+    timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+}
+
+// Reset timers.
+function ResetTimers() {
+    clearTimeout(warningTimer);
+    clearTimeout(timeoutTimer);
+    StartTimers();
+    $("#timeout").dialog('close');
+}
+
+// Show idle timeout warning dialog.
+function IdleWarning() {
+    $("#timeout").dialog({
+        modal: true
+    });
+}
+
+// Logout the user.
+function IdleTimeout() {
+    window.location = logoutUrl;
+}
+
+
+
+

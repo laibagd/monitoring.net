@@ -38,13 +38,13 @@ class CheckDevice {
 
 
 
-
+$time = new DateTime();
 
 $ip_addr = $_POST['ip'];
 
 if ((new CheckDevice())->ping($ip_addr))
-    echo "Device Connected <br>";
+    echo "Device Connected {$time->format('Y-m-d h:i:s')}<br>";
 else
-    echo "Device disconnected <br>";
+    echo "Device disconnected  {$time->format('Y-m-d h:i:s')}<br>";
 
 

@@ -50,8 +50,8 @@ body {
     overflow: hidden;
     background-color: white;
     position: absolute;
-    left: 30%;
-    top:5%;
+    left: 25%;
+    top:10%;
 
 }
 
@@ -91,6 +91,16 @@ body {
     font-weight: bold;
 
 }
+
+
+.button {
+    background-color: white;
+    display: block;
+
+}
+
+
+
 
 #nuotrauka{
     float: left;
@@ -395,4 +405,25 @@ div.desc {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #b30000;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+#timeout {
+    display: none;
 }

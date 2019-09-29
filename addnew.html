@@ -1,10 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html lang="en" dir="ltr" class="ltr"><head>
+    <meta charset="utf-8">
+    <title>SERVER MONITOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#424242">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <!-- Le styles -->
+    <link href="static/plugin/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/plugin/twitter-bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="static/plugin/bootstrap-multiselect/bootstrap-multiselect.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="static/plugin/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="static/plugin/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/plugin/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+    <script type="text/javascript" src="static/js/scripts.js"></script>
 </head>
-<body>
-$END$
-</body>
-</html>
+<body data-spy="scroll" data-target=".subnav" data-offset="50" class="">
+<!-- navbar -->
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="index.php">SERVER MONITOR</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class=""><a href="/?&amp;mod=server_status">Status</a></li>
+                    <li class="active"><a href="/?&amp;mod=server">Servers</a></li>
+                    <li class=""><a href="/?&amp;mod=server_log">Log</a></li>
+                    <li class=""><a href="/?&amp;mod=user">Users</a></li>
+                    <li class=""><a href="/?&amp;mod=config">Config</a></li>
+                    <li class=""><a href="/?&amp;mod=server_update">Update</a></li>
+                    <li id="nav_option_help">
+                        <a href="http://www.phpservermonitor.org/support" target="_blank">Help</a>
+                    </li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li class="dropdown visible-desktop">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, manager <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/?&amp;mod=user_profile"><i class="icon-cog"></i>&nbsp;Profile</a></li>
+                            <li><a href="/?&amp;logout=1"><i class="icon-off"></i>&nbsp;Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="hidden-desktop divider"></li>
+                    <li class="hidden-desktop"><a href="/?&amp;mod=user_profile">Profile</a></li>
+                    <li class="hidden-desktop"><a href="/?&amp;logout=1">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /navbar -->
+
+
+<!-- container -->
+<div id="main-container">
+    <div class="page-header">
+        <div class="header-label"><h1>Servers</h1></div>
+        <div class="header-accessories"></div>
+    </div>
+    <div id="main-content">
+
+        <div id="page-container">
+            <div id="flashmessage" class="hide">
+            </div>
+            <form class="form-horizontal well" action="/?&amp;mod=server&amp;action=save&amp;id=0&amp;back_to=" method="post" autocomplete="off">
+                <input type="hidden" name="csrf" value="5d350b92bfe75eb89d9a98ffaa8503b224da777afe158ffd425031f6f9486731">
+
+                <fieldset>
+                    <legend>Insert</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="label">Label</label>
+                        <div class="controls">
+                            <input type="text" id="label" name="label" value="" maxlength="255">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="ip">Domain/IP</label>
+                        <div class="controls">
+                            <input type="text" id="ip" name="ip" value="" maxlength="500">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="type">Type</label>
+                        <div class="controls">
+                            <select id="type" name="type">
+                                <option value="">Please select</option>
+                                <option value="ping">Ping</option>
+                                <option value="service">Service</option>
+                                <option value="website">Website</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group popularPortsGroup types typeService" style="display: none;">
+                        <label class="control-label" for="popularPorts">Port</label>
+                        <div class="controls">
+                            <select id="popularPorts" name="popularPorts">
+                                <option value="">Please select</option>
+                                <option value="custom">Custom Port</option>
+                                <optgroup label="Popular Ports">
+                                    <option value="80">HTTP (80)</option>
+                                    <option value="443">HTTPS (443)</option>
+                                    <option value="21">FTP (21)</option>
+                                    <option value="25">SMTP (25)</option>
+                                    <option value="465">SMTP Secure (465)</option>
+                                    <option value="110">POP3 (110)</option>
+                                    <option value="995">POP3 Secure (995)</option>
+                                    <option value="143">IMAP (143)</option>
+                                    <option value="993">IMAP over SSL (993)</option>
+                                    <option value="22">SSH (22)</option>
+                                    <option value="389">LDAP (389)</option>
+                                    <option value="3306">MySQL (3306)</option>
+                                    <option value="115">SFTP (115)</option>
+                                    <option value="43">WHOIS (43)</option>
+                                    <option value="53">BIND (53)</option>
+                                    <option value="3389">RDP (3389)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group portGroup types typeService" style="display: none;">
+                        <label class="control-label" for="port">Custom Port</label>
+                        <div class="controls">
+                            <input class="input-mini" type="text" id="port" name="port" value="" maxlength="5">
+                        </div>
+                    </div>
+                    <div class="control-group types typeWebsite" style="display: none;">
+                        <label class="control-label" for="pattern">Search string/pattern</label>
+                        <div class="controls">
+                            <input type="text" id="pattern" name="pattern" value="" maxlength="255" data-toggle="tooltip" data-original-title="If this pattern is not found on the website, the server will be marked offline. Regular expressions are allowed.">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="warning_threshold">Warning threshold</label>
+                        <div class="controls">
+                            <input class="input-mini" type="text" id="warning_threshold" name="warning_threshold" value="1" maxlength="5" data-toggle="tooltip" data-original-title="Number of failed checks required before it is marked offline.">
+                        </div>
+                    </div>
+                    <div class="control-group types typeWebsite" style="display: none;">
+                        <label class="control-label" for="timeout">Timeout</label>
+                        <div class="controls">
+                            <input class="input-mini" type="text" id="timeout" name="timeout" value="" placeholder="" maxlength="10" data-toggle="tooltip" data-original-title="Number of seconds to wait for the server to respond."> s
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend class="types typeWebsite" style="display: none;">Authentication Settings (Optional)</legend>
+                    <div class="control-group types typeWebsite" style="display: none;">
+                        <label class="control-label" for="website_username">Username</label>
+                        <div class="controls">
+                            <input type="text" id="website_username" name="website_username" value="" data-toggle="tooltip" autocomplete="off" readonly="" onfocus="this.removeAttribute('readonly');" data-original-title="Username to access the site. (Only Apache authentication is supported.)">
+                        </div>
+                    </div>
+                    <div class="control-group types typeWebsite" style="display: none;">
+                        <label class="control-label" for="website_password">Password</label>
+                        <div class="controls">
+                            <input type="password" id="website_password" name="website_password" value="" data-toggle="tooltip" autocomplete="off" readonly="" onfocus="this.removeAttribute('readonly');" data-original-title="Password to access the site. The password is encrypted in the database.">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Monitoring</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="active">Monitoring</label>
+                        <div class="controls">
+                            <select id="active" name="active">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <label class="control-label" for="email">Send Email
+                        </label>
+                        <div class="controls">
+                            <select id="email" name="email">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group warning">
+                        <label class="control-label" for="sms">Send SMS
+                            <p class="help-inline"><i class="icon-warning-sign" data-toggle="tooltip" data-original-title="SMS notifications are disabled."></i></p> 			</label>
+                        <div class="controls">
+                            <select id="sms" name="sms">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group warning">
+                        <label class="control-label" for="pushover">Pushover
+                            <p class="help-inline"><i class="icon-warning-sign" data-toggle="tooltip" data-original-title="Pushover notifications are disabled."></i></p> 			</label>
+                        <div class="controls">
+                            <select id="pushover" name="pushover">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Permissions</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="user_id">Users</label>
+                        <div class="controls">
+                            <select class="multiselect" multiple="multiple" id="user_id" name="user_id[]" style="display: none;">
+                                <option value="1"> manager</option>
+                            </select><div class="btn-group"><button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected">None selected <b class="caret"></b></button><ul class="multiselect-container dropdown-menu" style="max-height: 400px; overflow: hidden auto;"><li class="multiselect-item filter" value="0"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text" placeholder="Search"></div></li><li class="multiselect-item multiselect-all"><a href="javascript:void(0);" class="multiselect-all"><label class="checkbox"><input type="checkbox" name="multiselect" value="multiselect-all">  Select all</label></a></li><li><a href="javascript:void(0);"><label class="checkbox"><input type="checkbox" name="multiselect" value="1">  manager</label></a></li></ul></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-success" type="submit">Save</button>
+                        <a class="btn" href="/?&amp;mod=server">Go back</a>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="powered"><small>Powered by <a href="http://www.phpservermonitor.org/" target="_blank">PHP Server Monitor v3.2.0</a>.<br></small></p>
+    </footer>
+</div>
+<!-- /container -->
+
+
+</body></html>

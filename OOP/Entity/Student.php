@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace KSC\Entity;
+namespace Entity;
 class Student
 {
 
